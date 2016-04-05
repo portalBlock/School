@@ -24,7 +24,7 @@ public class SingleBufferWrappedInputStream<T> implements BufferWrappedInputStre
     @Override
     public T use() {
         T result = this.value;
-        if(this.reader != null)
+        if(this.reader != null && this.inputStream != null)
             this.value = reader.readNext(this.inputStream);
         return result;
     }
